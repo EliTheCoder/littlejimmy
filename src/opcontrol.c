@@ -6,8 +6,8 @@ void lDriveSet(int control){
 	motorSet(1, -control);
 }
 void rDriveSet(int control){
-	motorSet(8, -control);
-	motorSet(10, -control);
+	motorSet(3, -control);
+	motorSet(4, -control);
 }
 
 void operatorControl() {
@@ -19,16 +19,5 @@ void operatorControl() {
 
 		delay(25);
 
-		if (joystickGetDigital(1, 6, JOY_UP)) {
-				lDriveSet(20);
-				rDriveSet(20);
-				delay(1000);
-		}
-
-		if (joystickGetDigital(1, 7, JOY_DOWN)) {
-				lDriveSet(127);
-				rDriveSet(127);
-				delay(500);
-		}
 	}
 }
