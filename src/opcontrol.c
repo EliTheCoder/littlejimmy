@@ -6,10 +6,10 @@ int lMotor2 = 2;
 int rMotor1 = 3;
 int rMotor2 = 4;
 
-int flyWheel1 = 5;
-int flyWheel2 = 6;
+int flyWheel1 = 6;
+int flyWheel2 = 7;
 
-int intake1 = 10;
+int intake1 = 5;
 
 void lDriveSet(int control) {
 	motorSet(lMotor1, -control);
@@ -40,9 +40,7 @@ void operatorControl() {
 
 		if (joystickGetDigital(1, 5, JOY_UP)) {
 			intakeActive = true;
-		}
-
-		if (joystickGetDigital(1, 5, JOY_DOWN)) {
+		} else {
 			intakeActive = false;
 		}
 
@@ -50,16 +48,16 @@ void operatorControl() {
 			flyWheelActive = true;
 		}
 
-		if (joystickGetDigital(1, 6, JOY_DOWN)) {
-			flyWheelActive = false;
-		}
-
 		if (intakeActive) {
 			intakeSet(127);
+		} else {
+			intakeSet(0);
 		}
 
 		if (flyWheelActive) {
 			flyWheelSet(127);
+		} else {
+			flyWheelSet(0);
 		}
 
 		delay(25);
