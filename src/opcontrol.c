@@ -40,12 +40,12 @@ void operatorControl() {
 	while (true) {
 		if (!turboMode) {
 			if (joystickGetAnalog(1, 3) > 2 || joystickGetAnalog(1, 3) < -2)
-				lDriveSet(joystickGetAnalog(1,3)/5);
+				lDriveSet(joystickGetAnalog(1,3)/2);
 			else
 				lDriveSet(0);
 
 			if (joystickGetAnalog(1, 2) > 2 || joystickGetAnalog(1, 2) < -2)
-				rDriveSet(joystickGetAnalog(1,2)/5);
+				rDriveSet(joystickGetAnalog(1,2)/2);
 			else
 				rDriveSet(0);
 		} else {
@@ -60,13 +60,13 @@ void operatorControl() {
 				rDriveSet(0);
 		}
 
-		if (joystickGetDigital(1, 5, JOY_UP)) {
+		if (joystickGetDigital(1, 5, JOY_DOWN)) {
 			intakeSet(127);
 		} else {
 			intakeSet(0);
 		}
 
-		if (joystickGetDigital(1, 5, JOY_DOWN)) {
+		if (joystickGetDigital(1, 5, JOY_UP)) {
 			conveyorSet(127);
 		} else {
 			conveyorSet(0);
