@@ -1,5 +1,7 @@
 #include "main.h"
 
+bool turboMode = false;
+
 int lMotor1 = 1;
 int lMotor2 = 2;
 
@@ -36,15 +38,27 @@ void conveyorSet(int control) {
 
 void operatorControl() {
 	while (true) {
-		if (joystickGetAnalog(1, 3) > 5 || joystickGetAnalog(1, 3) < -5)
-			lDriveSet(joystickGetAnalog(1,3));
-		else
-			lDriveSet(0);
+		if (!turboMode) {
+			if (joystickGetAnalog(1, 3) > 2 || joystickGetAnalog(1, 3) < -2)
+				lDriveSet(joystickGetAnalog(1,3)/5);
+			else
+				lDriveSet(0);
 
-		if (joystickGetAnalog(1, 2) > 5 || joystickGetAnalog(1, 2) < -5)
-			rDriveSet(joystickGetAnalog(1,2));
-		else
-			rDriveSet(0);
+			if (joystickGetAnalog(1, 2) > 2 || joystickGetAnalog(1, 2) < -2)
+				rDriveSet(joystickGetAnalog(1,2)/5);
+			else
+				rDriveSet(0);
+		} else {
+			if (joystickGetAnalog(1, 3) > 5 || joystickGetAnalog(1, 3) < -5)
+				lDriveSet(joystickGetAnalog(1,3));
+			else
+				lDriveSet(0);
+
+			if (joystickGetAnalog(1, 2) > 5 || joystickGetAnalog(1, 2) < -5)
+				rDriveSet(joystickGetAnalog(1,2));
+			else
+				rDriveSet(0);
+		}
 
 		if (joystickGetDigital(1, 5, JOY_UP)) {
 			intakeSet(127);
@@ -62,6 +76,12 @@ void operatorControl() {
 			flyWheelSet(127);
 		} else {
 			flyWheelSet(0);
+		}
+
+		if (joystickGetDigital(1, 6, JOY_DOWN)) {
+			turboMode = true;
+		} else {
+			turboMode = false;
 		}
 
 		delay(25);

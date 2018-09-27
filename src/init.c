@@ -40,5 +40,5 @@ void initialize() {
   speakerInit();
   lcdInit(uart1);
   lcdClear(uart1);
-  lcdSetText(uart1, 2, "Little Jimmy v1.1");
+  lcdSetText(uart1, 2, "LittleJimmy v1.1");
 }
