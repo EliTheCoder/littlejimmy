@@ -28,5 +28,7 @@
  */
 void autonomous() {
   speakerInit();
-  speakerPlayRtttl("Xfiles:d=4,o=5,b=125:e,b,a,b,d6,2b.,1p,e,b,a,b,e6,2b.,1p,g6,f#6,e6,d6,e6,2b.,1p,g6,f#6,e6,d6,f#6,2b.,1p,e,b,a,b,d6,2b.,1p,e,b,a,b,e6,2b.,1p,e6,2b.");
+  speakerPlayRtttl("Unfortunately: d=8,o=4,b=120: c, c, e, g, a, g, e, f, p, f, p, e, d, e, d, c, c, c, e, g, a, g, e, 2a3, 2c");
+  delay(2000);
+  speakerPlayRtttl("DropofWater: d=8,o=4,b=128: c, e, e, e, e, e, d, c, d, 4c, 4p, 2c5, 4p, b, a, g, a, g, e, d, e, 2p, p, c, e, e, e, e, e, d, c, d, 4c");
 }
