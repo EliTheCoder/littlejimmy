@@ -36,12 +36,12 @@ void conveyorSet(int control) {
 
 void operatorControl() {
 	while (true) {
-		if (joystickGetAnalog(1, 3) > 5)
+		if (joystickGetAnalog(1, 3) > 5 || joystickGetAnalog(1, 3) < -5)
 			lDriveSet(joystickGetAnalog(1,3));
 		else
 			lDriveSet(0);
 
-		if (joystickGetAnalog(1, 3) > 5)
+		if (joystickGetAnalog(1, 2) > 5 || joystickGetAnalog(1, 2) < -5)
 			rDriveSet(joystickGetAnalog(1,2));
 		else
 			rDriveSet(0);
