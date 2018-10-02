@@ -4,24 +4,28 @@ bool turboMode = false;
 
 int lMotor1 = 1;
 int lMotor2 = 2;
+int lMotor3 = 3;
 
-int rMotor1 = 3;
-int rMotor2 = 4;
+int rMotor1 = 4;
+int rMotor2 = 5;
+int rMotor3 = 6;
 
-int flyWheel1 = 6;
-int flyWheel2 = 7;
-
-int intake1 = 5;
+int intake1 = 7;
 
 int conveyor1 = 8;
+
+int flyWheel1 = 9;
+int flyWheel2 = 10;
 
 void lDriveSet(int control) {
 	motorSet(lMotor1, -control);
 	motorSet(lMotor2, -control);
+	motorSet(lMotor3, -control);
 }
 void rDriveSet(int control) {
 	motorSet(rMotor1, -control);
 	motorSet(rMotor2, -control);
+	motorSet(rMotor3, -control);
 }
 void flyWheelSet(int control) {
 	motorSet(flyWheel1, control);
@@ -40,12 +44,12 @@ void operatorControl() {
 	while (true) {
 		if (!turboMode) {
 			if (joystickGetAnalog(1, 3) > 2 || joystickGetAnalog(1, 3) < -2)
-				lDriveSet(joystickGetAnalog(1,3)/2);
+				lDriveSet(joystickGetAnalog(1,3)^3/16129);
 			else
 				lDriveSet(0);
 
 			if (joystickGetAnalog(1, 2) > 2 || joystickGetAnalog(1, 2) < -2)
-				rDriveSet(joystickGetAnalog(1,2)/2);
+				rDriveSet(joystickGetAnalog(1,2)^3/16129);
 			else
 				rDriveSet(0);
 		} else {
