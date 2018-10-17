@@ -2,30 +2,26 @@
 
 bool turboMode = false;
 
-int lMotor1 = 1;
-int lMotor2 = 2;
-int lMotor3 = 3;
+#define lMotor1 3
+#define lMotor2 4
 
-int rMotor1 = 4;
-int rMotor2 = 5;
-int rMotor3 = 6;
+#define rMotor1 5
+#define rMotor2 2
 
-int intake1 = 7;
+#define intake1 6
 
-int conveyor1 = 8;
+#define conveyor1 1
 
-int flyWheel1 = 9;
-int flyWheel2 = 10;
+#define flyWheel1 7
+#define flyWheel2 8
 
 void lDriveSet(int control) {
 	motorSet(lMotor1, -control);
 	motorSet(lMotor2, -control);
-	motorSet(lMotor3, -control);
 }
 void rDriveSet(int control) {
 	motorSet(rMotor1, -control);
 	motorSet(rMotor2, -control);
-	motorSet(rMotor3, -control);
 }
 void flyWheelSet(int control) {
 	motorSet(flyWheel1, control);
@@ -78,15 +74,17 @@ void operatorControl() {
 
 		if (joystickGetDigital(1, 6, JOY_UP)) {
 			flyWheelSet(127);
+		} else if (joystickGetDigital(1, 6, JOY_DOWN)) {
+			flywheelSet(-127);
 		} else {
 			flyWheelSet(0);
 		}
 
-		if (joystickGetDigital(1, 6, JOY_DOWN)) {
+		/*if (joystickGetDigital(1, 6, JOY_DOWN)) {
 			turboMode = true;
 		} else {
 			turboMode = false;
-		}
+		}*/
 
 		delay(25);
 
