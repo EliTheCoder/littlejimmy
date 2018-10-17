@@ -5,8 +5,8 @@ bool turboMode = false;
 #define lMotor1 3
 #define lMotor2 4
 
-#define rMotor1 5
-#define rMotor2 2
+#define rMotor1 2
+#define rMotor2 5
 
 #define intake1 6
 
@@ -75,7 +75,7 @@ void operatorControl() {
 		if (joystickGetDigital(1, 6, JOY_UP)) {
 			flyWheelSet(127);
 		} else if (joystickGetDigital(1, 6, JOY_DOWN)) {
-			flywheelSet(-127);
+			flyWheelSet(-127);
 		} else {
 			flyWheelSet(0);
 		}
