@@ -2,20 +2,18 @@
 
 bool turboMode = false;
 
-int lMotor1 = 1;
-int lMotor2 = 2;
-int lMotor3 = 3;
+#define lMotor1 3
+#define lMotor2 4
 
-int rMotor1 = 4;
-int rMotor2 = 5;
-int rMotor3 = 6;
+#define rMotor1 5
+#define rMotor2 2
 
-int intake1 = 7;
+#define intake1 6
 
-int conveyor1 = 8;
+#define conveyor1 1
 
-int flyWheel1 = 9;
-int flyWheel2 = 10;
+#define flyWheel1 7
+#define flyWheel2 8
 
 void lDriveSet(int control) {
 	motorSet(lMotor1, -control);
