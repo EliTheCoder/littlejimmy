@@ -18,12 +18,10 @@ bool turboMode = false;
 void lDriveSet(int control) {
 	motorSet(lMotor1, -control);
 	motorSet(lMotor2, -control);
-	motorSet(lMotor3, -control);
 }
 void rDriveSet(int control) {
 	motorSet(rMotor1, -control);
 	motorSet(rMotor2, -control);
-	motorSet(rMotor3, -control);
 }
 void flyWheelSet(int control) {
 	motorSet(flyWheel1, control);
@@ -76,15 +74,17 @@ void operatorControl() {
 
 		if (joystickGetDigital(1, 6, JOY_UP)) {
 			flyWheelSet(127);
+		} else if (joystickGetDigital(1, 6, JOY_DOWN)) {
+			flywheelSet(-127);
 		} else {
 			flyWheelSet(0);
 		}
 
-		if (joystickGetDigital(1, 6, JOY_DOWN)) {
+		/*if (joystickGetDigital(1, 6, JOY_DOWN)) {
 			turboMode = true;
 		} else {
 			turboMode = false;
-		}
+		}*/
 
 		delay(25);
 
