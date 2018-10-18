@@ -1,6 +1,36 @@
 #include "main.h"
-#include "ports.h"
-#include "methods.h"
+
+int lMotor1 = 3;
+int lMotor2 = 4;
+int rMotor1 = 2;
+int rMotor2 = 5;
+int intake1 = 6;
+int conveyor1 = 1;
+int flyWheel1 = 7;
+int flyWheel2 = 8;
+
+void lDriveSet(int control) {
+	motorSet(lMotor1, -control);
+	motorSet(lMotor2, -control);
+}
+void rDriveSet(int control) {
+	motorSet(rMotor1, -control);
+	motorSet(rMotor2, -control);
+}
+void flyWheelSet(int control) {
+	motorSet(flyWheel1, control);
+	motorSet(flyWheel2, control);
+}
+void intakeSet(int control) {
+	motorSet(intake1, control);
+}
+void conveyorSet(int control) {
+	motorSet(conveyor1, control);
+}
+
+
+
+
 
 void operatorControl() {
 	while (true) {
