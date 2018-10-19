@@ -3,17 +3,19 @@
 bool turboMode = false;
 
 int lMotor1 = 3;
-int lMotor2 = 4;
+int lMotor2 = 5;
 
 int rMotor1 = 2;
-int rMotor2 = 5;
+int rMotor2 = 4;
 
-int intake1 = 6;
+int intake1 = 1;
 
-int conveyor1 = 1;
+int conveyor1 = 6;
 
 int flyWheel1 = 7;
 int flyWheel2 = 8;
+
+// Ports 9-10 are nonfunctional
 
 void lDriveSet(int control) {
 	motorSet(lMotor1, -control);
