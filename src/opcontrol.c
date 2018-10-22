@@ -1,14 +1,12 @@
 #include "main.h"
 
-bool turboMode = false;
+int lMotor1 = 1;
+int lMotor2 = 2;
 
-int lMotor1 = 3;
-int lMotor2 = 5;
-
-int rMotor1 = 2;
+int rMotor1 = 3;
 int rMotor2 = 4;
 
-int intake1 = 1;
+int intake1 = 5;
 
 int conveyor1 = 6;
 
@@ -40,30 +38,20 @@ void conveyorSet(int control) {
 
 void operatorControl() {
 	while (true) {
-		if (!turboMode) {
-			if (joystickGetAnalog(1, 3) > 5 || joystickGetAnalog(1, 3) < -5)
-				lDriveSet(joystickGetAnalog(1,3)^3/25000);
-			else
-				lDriveSet(0);
+		if (joystickGetAnalog(1, 3) > 5 || joystickGetAnalog(1, 3) < -5)
+			lDriveSet(joystickGetAnalog(1,3)^3/25000);
+		else
+			lDriveSet(0);
 
-			if (joystickGetAnalog(1, 2) > 5 || joystickGetAnalog(1, 2) < -5)
-				rDriveSet(joystickGetAnalog(1,2)^3/25000);
-			else
-				rDriveSet(0);
-		} else {
-			if (joystickGetAnalog(1, 3) > 5 || joystickGetAnalog(1, 3) < -5)
-				lDriveSet(joystickGetAnalog(1,3));
-			else
-				lDriveSet(0);
-
-			if (joystickGetAnalog(1, 2) > 5 || joystickGetAnalog(1, 2) < -5)
-				rDriveSet(joystickGetAnalog(1,2));
-			else
-				rDriveSet(0);
-		}
+		if (joystickGetAnalog(1, 2) > 5 || joystickGetAnalog(1, 2) < -5)
+			rDriveSet(joystickGetAnalog(1,2)^3/25000);
+		else
+			rDriveSet(0);
 
 		if (joystickGetDigital(1, 5, JOY_DOWN)) {
 			intakeSet(127);
+		} else if (joystickGetDigital(1, 5, JOY_DOWN)) {
+			intakeSet(-127);
 		} else {
 			intakeSet(0);
 		}
@@ -78,12 +66,6 @@ void operatorControl() {
 			flyWheelSet(127);
 		} else {
 			flyWheelSet(0);
-		}
-
-		if (joystickGetDigital(1, 6, JOY_DOWN)) {
-			turboMode = true;
-		} else {
-			turboMode = false;
 		}
 
 		delay(25);
