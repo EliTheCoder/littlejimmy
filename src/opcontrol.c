@@ -53,7 +53,7 @@ void operatorControl() {
 		} else if (joystickGetDigital(1, 5, JOY_DOWN)) {
 			intakeSet(-127);
 		} else {
-			intakeSet(0);
+			intakeSet(1);
 		}
 
 		if (joystickGetDigital(1, 5, JOY_UP)) {
