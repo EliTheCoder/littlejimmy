@@ -54,6 +54,8 @@ void operatorControl() {
 
 		if (joystickGetDigital(1, 5, JOY_DOWN)) {
 			intakeSet(127);
+		} else if (joystickGetDigital(1, 6, JOY_DOWN)) {
+			intakeSet(-127);
 		} else {
 			intakeSet(0);
 		}
@@ -66,8 +68,6 @@ void operatorControl() {
 
 		if (joystickGetDigital(1, 6, JOY_UP)) {
 			flyWheelSet(127);
-		} else if (joystickGetDigital(1, 6, JOY_DOWN)) {
-			flyWheelSet(-127);
 		} else {
 			flyWheelSet(0);
 		}
