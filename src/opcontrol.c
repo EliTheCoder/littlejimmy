@@ -38,6 +38,10 @@ void conveyorSet(int control) {
 
 void operatorControl() {
 	while (true) {
+
+		lcdSetText(uart1, 1, "LittleJimmy v5.2");
+	  lcdSetText(uart1, 2, (const char*)powerLevelMain());
+
 		if (joystickGetAnalog(1, 3) > 5 || joystickGetAnalog(1, 3) < -5)
 			lDriveSet(joystickGetAnalog(1,3)^3/25000);
 		else
@@ -50,10 +54,8 @@ void operatorControl() {
 
 		if (joystickGetDigital(1, 5, JOY_DOWN)) {
 			intakeSet(127);
-		} else if (joystickGetDigital(1, 5, JOY_DOWN)) {
-			intakeSet(-127);
 		} else {
-			intakeSet(1);
+			intakeSet(0);
 		}
 
 		if (joystickGetDigital(1, 5, JOY_UP)) {
@@ -64,6 +66,8 @@ void operatorControl() {
 
 		if (joystickGetDigital(1, 6, JOY_UP)) {
 			flyWheelSet(127);
+		} else if (joystickGetDigital(1, 6, JOY_DOWN)) {
+			flyWheelSet(-127);
 		} else {
 			flyWheelSet(0);
 		}
