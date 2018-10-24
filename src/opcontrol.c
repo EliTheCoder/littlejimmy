@@ -1,6 +1,6 @@
 #include "main.h"
 
-int lMotor1 = 6;
+int lMotor1 = 1;
 int lMotor2 = 2;
 
 int rMotor1 = 3;
@@ -8,7 +8,7 @@ int rMotor2 = 4;
 
 int intake1 = 5;
 
-int conveyor1 = 1;
+int conveyor1 = 6;
 
 int flyWheel1 = 7;
 int flyWheel2 = 8;
