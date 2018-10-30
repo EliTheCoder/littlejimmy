@@ -61,19 +61,19 @@ void operatorControl() {
 			rDriveSet(0);
 		
 		// Trigger buttons
-		if (joystickGetDigital(1, 5, JOY_DOWN)) {
-			intakeSet(-127);
-		} else if (joystickGetDigital(1, 6, JOY_DOWN)) {
-			intakeSet(-127);
-			conveyorSet(-127);
-		} else {
-			intakeSet(0);
-		}
-
 		if (joystickGetDigital(1, 5, JOY_UP)) {
 			conveyorSet(127);
 		} else {
 			conveyorSet(0);
+		}
+		
+		if (joystickGetDigital(1, 5, JOY_DOWN)) {
+			intakeSet(-127);
+		} else if (joystickGetDigital(1, 6, JOY_DOWN)) {
+			intakeSet(127);
+			conveyorSet(-127);
+		} else {
+			intakeSet(0);
 		}
 
 		if (joystickGetDigital(1, 6, JOY_UP)) {
