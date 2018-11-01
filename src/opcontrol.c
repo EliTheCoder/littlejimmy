@@ -15,9 +15,11 @@ int conveyor1 = 6;
 int flyWheel1 = 7;
 int flyWheel2 = 8;
 
+int flipper1 = 9;
+int flipper2 = 10;
+
 // Motor 1 - Back (main) drive wheels
 // Motor 2 - Front & middle wheels
-// Ports 9-10 are unused
 
 void lDriveSet(int control) {
 	motorSet(lMotor1, -control);
@@ -40,6 +42,10 @@ void conveyorSet(int control) {
 	motorSet(conveyor1, control);
 }
 
+void flipperSet(int control) {
+	motorSet(flipper1, control);
+	motorSet(flipper2, control);
+}
 
 
 void operatorControl() {
@@ -82,7 +88,11 @@ void operatorControl() {
 			flyWheelSet(0);
 		}
 		
-		
+		if (joystickGetDigital(1, 8, JOY_DOWN)) {
+			flipperSet(127);
+		} else {
+			flipperSet(0);
+		}
 
 			
 		delay(25);
