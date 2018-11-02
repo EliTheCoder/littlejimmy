@@ -93,6 +93,16 @@ void operatorControl() {
 		} else {
 			flipperSet(0);
 		}
+		
+		if (joystickGetDigital(1, 8, JOY_RIGHT)) { // for debugging only
+			lDriveSet(0);
+			rDriveSet(0);
+			conveyorSet(0);
+			intakeSet(0);
+			flyWheelSet(0);
+			flipperSet(0);
+			
+		}
 
 			
 		delay(25);
