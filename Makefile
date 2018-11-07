@@ -21,7 +21,7 @@ CPPSRC:=$(wildcard *.$(CPPEXT))
 CPPOBJ:=$(patsubst %.o,$(BINDIR)/%.o,$(CPPSRC:.$(CPPEXT)=.o))
 OUT:=$(BINDIR)/$(OUTNAME)
 
-.PHONY: all clean flash upload upload-legacy _force_look
+.PHONY: all clean upload _force_look
 
 # By default, compile program
 all: $(BINDIR) $(OUT)
@@ -33,13 +33,6 @@ clean:
 
 # Uploads program to device
 upload: all
-	$(FLASH)
-
-# Alias to upload, more consistent with our terminology
-flash: upload
-
-# Uploads program to device using legacy uniflasher JAR file
-upload-legacy: all
 	$(UPLOAD)
 
 # Phony force-look target
@@ -69,7 +62,7 @@ $(ASMOBJ): $(BINDIR)/%.o: %.$(ASMEXT) $(HEADERS)
 # Object management
 $(COBJ): $(BINDIR)/%.o: %.$(CEXT) $(HEADERS)
 	@echo CC $(INCLUDE) $<
-	$(CC) $(INCLUDE) $(CFLAGS) -o $@ $<
+	@$(CC) $(INCLUDE) $(CFLAGS) -o $@ $<
 
 $(CPPOBJ): $(BINDIR)/%.o: %.$(CPPEXT) $(HEADERS)
 	@echo CPC $(INCLUDE) $<
