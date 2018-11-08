@@ -30,5 +30,5 @@
  * Therefore there is no need to insert a loop or a delay in this method.
  */
 void userControl(){
-
+	robot_joyDrive(1);
 }
