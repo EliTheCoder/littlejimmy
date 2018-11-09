@@ -31,7 +31,7 @@
  */
 void userControl(){
 	if (joystickGetDigital(1, 7, JOY_DOWN))
-		robot_setDrive(127);
+		lcd_centerPrint(&Robot.lcd, BOTTOM, "Detected ;)");
 	else
-		robot_setDrive(0);
+		lcd_centerPrint(&Robot.lcd, BOTTOM, "Not Detected");
 }
