@@ -30,5 +30,8 @@
  * Therefore there is no need to insert a loop or a delay in this method.
  */
 void userControl(){
-	robot_joyDrive(1);
+	if (joystickGetDigital(1, 7, JOY_DOWN))
+		robot_setDrive(127);
+	else
+		robot_setDrive(0);
 }
