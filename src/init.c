@@ -14,16 +14,16 @@ void initialize() {
 	 */
 
 	 //setup individual motors
-	 Motor leftMotor1 = motor_init(PORT_1, false);
-	 Motor leftMotor2 = motor_init(PORT_2, false);
-	 Motor rightMotor1 = motor_init(PORT_3, false);
-	 Motor rightMotor2 = motor_init(PORT_4, false);
-	 Motor intakeMotor1 = motor_init(PORT_5, false);
-	 Motor conveyorMotor1 = motor_init(PORT_6, false);
-	 Motor flywheelMotor1 = motor_init(PORT_7, false);
-	 Motor flywheelMotor2 = motor_init(PORT_8, false);
-	 Motor liftMotor1 = motor_init(PORT_9, false);
-	 Motor liftMotor2 = motor_init(PORT_10, false);
+	 Motor leftMotor1 = motor_init(PORT_1, true);
+	 Motor leftMotor2 = motor_init(PORT_2, true);
+	 Motor rightMotor1 = motor_init(PORT_3, true);
+	 Motor rightMotor2 = motor_init(PORT_4, true);
+	 Motor intakeMotor1 = motor_init(PORT_5, true);
+	 Motor conveyorMotor1 = motor_init(PORT_6, true);
+	 Motor flywheelMotor1 = motor_init(PORT_7, true);
+	 Motor flywheelMotor2 = motor_init(PORT_8, true);
+	 Motor liftMotor1 = motor_init(PORT_9, true);
+	 Motor liftMotor2 = motor_init(PORT_10, true);
 
 	 //setup default motor systems
 	 Robot.leftDrive = motorSystem_init(2, &leftMotor1, &leftMotor2);
