@@ -26,10 +26,10 @@ void initialize() {
 	 Motor liftMotor2 = motor_init(PORT_10, false);
 
 	 //setup default motor systems
-	 Robot.leftDrive = motorSystem_init(2, leftMotor1, leftMotor2);
-	 Robot.rightDrive = motorSystem_init(2, rightMotor1, rightMotor2);
-	 Robot.intake = motorSystem_init(4, intakeMotor1, conveyorMotor1, flywheelMotor1, flywheelMotor2);
-	 Robot.lift = motorSystem_init(2, liftMotor1, liftMotor2);
+	 Robot.leftDrive = motorSystem_init(2, &leftMotor1, &leftMotor2);
+	 Robot.rightDrive = motorSystem_init(2, &rightMotor1, &rightMotor2);
+	 Robot.intake = motorSystem_init(4, &intakeMotor1, &conveyorMotor1, &flywheelMotor1, &flywheelMotor2);
+	 Robot.lift = motorSystem_init(2, &liftMotor1, &liftMotor2);
 
 	//LCD
 	Robot.lcd = lcd_init(uart2);    //setup the robot's lcd
