@@ -19,8 +19,8 @@
  */
 void operatorControl() {
 
-	lcd_centerPrint(&Robot.lcd, TOP, "Driver");				//print to lcd
-	lcd_centerPrint(&Robot.lcd, BOTTOM, "Control Mode");	//print to lcd
+	//lcd_centerPrint(&Robot.lcd, TOP, "Driver");				//print to lcd
+	//lcd_centerPrint(&Robot.lcd, BOTTOM, "Control Mode");	//print to lcd
 
 	//continue to loop until competition is ended
 	while(robot_getMode() == COMPETITION){
