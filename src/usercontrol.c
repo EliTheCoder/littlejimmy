@@ -30,9 +30,11 @@
  * Therefore there is no need to insert a loop or a delay in this method.
  */
 void userControl(){
-	lcd_centerPrint(&Robot.lcd, TOP, "EEEEEE");
-	if (joystickGetDigital(1, 7, JOY_DOWN))
-		lcd_centerPrint(&Robot.lcd, BOTTOM, "Detected ;)");
-	else
-		lcd_centerPrint(&Robot.lcd, BOTTOM, "Not Detected");
+	robot_joyDrive(DRIVER);
+
+
+	if (joystickGetDigital(DRIVER, 6, JOY_UP))
+		motorSystem_setVelocity(&Robot.lift, 127);
+	else if(joystickGetDigital(DRIVER, 6, JOY_DOWN))
+		motorSystem_setVelocity(&Robot.lift, -127);
 }
