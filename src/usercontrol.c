@@ -31,10 +31,13 @@
  */
 void userControl(){
 	robot_joyDrive(DRIVER);
+	printf("Running userControl");
 
-
-	if (joystickGetDigital(DRIVER, 6, JOY_UP))
+	if (joystickGetDigital(DRIVER, 6, JOY_UP)) {
+		printf("Detected 6 JOY_UP");
 		motorSystem_setVelocity(&Robot.lift, 127);
-	else if(joystickGetDigital(DRIVER, 6, JOY_DOWN))
+	} else if(joystickGetDigital(DRIVER, 6, JOY_DOWN)) {
+		printf("Detected 6 JOY_DOWN");
 		motorSystem_setVelocity(&Robot.lift, -127);
+	}
 }

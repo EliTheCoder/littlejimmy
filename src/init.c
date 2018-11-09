@@ -8,7 +8,7 @@ void initialize() {
 
 	//initialize the robot
 	robot_init();
-
+	printf("Initilization in progress...");
 	/*
 	 * Place all robot initilization code here!!!
 	 */
