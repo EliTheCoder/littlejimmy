@@ -30,14 +30,11 @@
  * Therefore there is no need to insert a loop or a delay in this method.
  */
 void userControl(){
-	robot_joyDrive(DRIVER);
-	printf("Running userControl");
+	robot_joyDrive(DRIVER);     //control drive from joystick
 
-	if (joystickGetDigital(DRIVER, 6, JOY_UP)) {
-		printf("Detected 6 JOY_UP");
-		motorSystem_setVelocity(&Robot.lift, 127);
-	} else if(joystickGetDigital(DRIVER, 6, JOY_DOWN)) {
-		printf("Detected 6 JOY_DOWN");
-		motorSystem_setVelocity(&Robot.lift, -127);
-	}
+  /*intake controls */
+  if(joystickGetDigital(DRIVER, 6, JOY_UP))
+    motorSystem_setVelocity(&Robot.lift, 127);
+  else if(joystickGetDigital(DRIVER, 6, JOY_DOWN))
+    motorSystem_setVelocity(&Robot.lift, -127);
 }
